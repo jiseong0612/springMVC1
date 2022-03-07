@@ -15,10 +15,9 @@ public class RequestParamServlet extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String username = req.getParameter("username");
 		String age = req.getParameter("age");
-		
+		System.out.println(username + ", "+ age);
 		res.setContentType("text/plain");
 		res.setCharacterEncoding("utf-8");
-		
 		
 		System.out.println("[복수 파라미터]");
 		//http://localhost/request-param?username=jiseong&age=27&username=sara
