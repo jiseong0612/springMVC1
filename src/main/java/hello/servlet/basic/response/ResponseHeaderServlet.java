@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,8 +16,8 @@ public class ResponseHeaderServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		//[status-line]
-		//res.setStatus(HttpServletResponse.SC_OK);
-		res.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+		res.setStatus(HttpServletResponse.SC_OK);
+		//res.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 		
 		//[response-headers]
 		res.setHeader("Content-Type", "text/plain;charset=utf-8");
@@ -26,6 +27,10 @@ public class ResponseHeaderServlet extends HttpServlet {
 		
 		PrintWriter writer = res.getWriter();
 		writer.println("한글한글...");
+		
+		Cookie cookie = new Cookie("myCookie","value_Good");
+		cookie.setMaxAge(600);
+		res.addCookie(cookie);
 	}
 	
 }
