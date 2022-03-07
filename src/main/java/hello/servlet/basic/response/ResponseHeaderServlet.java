@@ -15,7 +15,8 @@ public class ResponseHeaderServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		//[status-line]
-		res.setStatus(HttpServletResponse.SC_OK);
+		//res.setStatus(HttpServletResponse.SC_OK);
+		res.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 		
 		//[response-headers]
 		res.setHeader("Content-Type", "text/plain;charset=utf-8");
