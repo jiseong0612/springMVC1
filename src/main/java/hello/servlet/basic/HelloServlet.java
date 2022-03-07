@@ -18,11 +18,11 @@ public class HelloServlet extends HttpServlet {
 		System.out.println(req);
 		System.out.println(res);
 		
-		String userName = req.getParameter("userName");
-		System.out.println(userName);
+		String username = req.getParameter("username");
+		System.out.println(username);
 		
 		res.setContentType("text/pain");
 		res.setCharacterEncoding("utf-8");
-		res.getWriter().write("hello, "+userName);
+		res.getWriter().write("hello, "+username);
 	}
 }
