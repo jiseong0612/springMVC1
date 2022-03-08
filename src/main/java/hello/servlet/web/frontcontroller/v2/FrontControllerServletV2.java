@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import hello.servlet.web.frontcontroller.MyView;
 import hello.servlet.web.frontcontroller.v2.controller.MemberFormControllerV2;
 import hello.servlet.web.frontcontroller.v2.controller.MemberListControllerV2;
 import hello.servlet.web.frontcontroller.v2.controller.MemberSaveControllerV2;
@@ -38,7 +39,8 @@ public class FrontControllerServletV2 extends HttpServlet {
 			return;
 		}
 		
-		controller.process(req, res);
+		MyView view = controller.process(req, res);
+		view.render(req, res);
 	}
 
 }
